@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * @ClassName Jmm03VolatileAtomic
- * @Description AtomicInteger 保证一致性
+ * @Description AtomicInteger 保证原子性
  * @Author fengxing
  * @Date 2020/8/10 15:46
  * @Version V1.0
