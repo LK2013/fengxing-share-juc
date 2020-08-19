@@ -1,5 +1,6 @@
 package com.share.juc.jmm.demo;
 
+import com.share.juc.jmm.util.UnsafeInstance;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -22,15 +23,13 @@ public class Jmm02VolatileOrder {
             x = 0; y = 0;
             a = 0; b = 0;
             Thread t1 = new Thread(()->{
-                shortWait(10000);
+                //shortWait(10000);
                 a = 1;//
                 x = b;//
-                // UnsafeInstance.reflectGetUnsafe().fullFence();
             });
 
             Thread t2 = new Thread(()->{
                 b = 1;
-                //UnsafeInstance.reflectGetUnsafe().fullFence();
                 y = a;
             });
 

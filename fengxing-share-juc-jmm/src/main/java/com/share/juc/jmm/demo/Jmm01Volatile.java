@@ -13,10 +13,11 @@ import lombok.extern.slf4j.Slf4j;
  * volatile保证即时可见性。
  *
  * -server -Xcomp -XX:+UnlockDiagnosticVMOptions -XX:+PrintAssembly -XX:CompileCommand=compileonly,*Jmm01Volatile.refresh -Djava.compiler=NONE
+ * javap -v -verbose C:\fengxingshare\fengxing-share-juc\fengxing-share-juc-jmm\target\classes\com\share\juc\jmm\demo\Jmm01Volatile.class
  * */
 @Slf4j
 public class Jmm01Volatile {
-    private volatile static boolean initFlag = false;
+    private static volatile boolean initFlag = false;
 
 
     public static void refresh(){
@@ -42,7 +43,7 @@ public class Jmm01Volatile {
         }
 
         Thread threadB = new Thread(()->{
-            refresh();
+           refresh();
         },"threadB");
         threadB.start();
     }

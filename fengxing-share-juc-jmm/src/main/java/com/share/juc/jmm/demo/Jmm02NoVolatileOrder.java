@@ -26,10 +26,11 @@ public class Jmm02NoVolatileOrder {
             x = 0; y = 0;
             a = 0; b = 0;
             Thread t1 = new Thread(()->{
-                shortWait(10000);
-                a = 1;//
-                x = b;//
-                // UnsafeInstance.reflectGetUnsafe().fullFence();
+                //shortWait(10000);
+                a = 1;
+                //UnsafeInstance.reflectGetUnsafe().fullFence();
+                x = b;
+
             });
 
             Thread t2 = new Thread(()->{
@@ -45,7 +46,7 @@ public class Jmm02NoVolatileOrder {
 
             String result = "第" + i + "次 (" + x + "," + y + "）";
             if(x == 0 && y == 0) {
-                System.out.println(result);
+                log.info(result);
                 break;
             } else {
                 log.info(result);

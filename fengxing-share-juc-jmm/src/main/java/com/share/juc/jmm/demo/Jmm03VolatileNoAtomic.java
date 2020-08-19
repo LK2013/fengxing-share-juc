@@ -23,8 +23,8 @@ public class Jmm03VolatileNoAtomic {
         for (int i = 0; i < 10; i++) {
             Thread thread = new Thread(()->{
                 for (int j = 0; j < 1000; j++) {
+
                         counter++;//分三步- 读，自加，写回
-                        //读
                 }
                 try {
                     countDownLatch.countDown();
