@@ -25,13 +25,13 @@ public class Jmm04SingleInstance {
      * @return
      */
     public static Jmm04SingleInstance getInstance() {
-        if (myinstance == null) {
+        if (myinstance == null) {//为了提高性能，第一次判空
             synchronized (Jmm04SingleInstance.class) {
-                if (myinstance == null) {
+                if (myinstance == null) {//为了单例，判空
                     //多线程下，23可能会进行指令重排。需要用volatile禁止指令重排
-                    //1 memory = allocate();//1.分配对象内存空间
-                    //2 instance(memory);//2.初始化对象
-                    //3 instance = memory;//3.设置instance指向刚分配的内存地址，此时instance！=null
+                    //1：分配对象的内存空间 memory = allocate();
+                    //2：初始化对象 ctorInstance(memory);
+                    //3：设置instance指向刚分配的内存地址instance = memory;
                     myinstance = new Jmm04SingleInstance();
                 }
             }
