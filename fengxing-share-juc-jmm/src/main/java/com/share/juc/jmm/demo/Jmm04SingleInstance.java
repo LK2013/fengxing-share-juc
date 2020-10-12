@@ -2,6 +2,8 @@ package com.share.juc.jmm.demo;
 
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.concurrent.ConcurrentHashMap;
+
 /**
  * @ClassName Jmm04SingleInstance
  * @Description doublecheck单例模式

@@ -29,7 +29,6 @@ public class Jmm01Volatile {
     public static void main(String[] args){
         Thread threadA = new Thread(()->{
             while (!initFlag){
-
             }
             log.info("线程：" + Thread.currentThread().getName()
                     + "当前线程嗅探到initFlag的状态的改变");

@@ -27,9 +27,11 @@ public class Jmm01NoVolatile {
         log.info("refresh data success.......");
     }
     public  static int caculate(){
-        int a=0;
-        int b=1;
-        return a+b;
+        int counter=0;
+        for(int i=0;i<1000;i++){
+            counter++;
+        }
+        return counter;
     }
 
     public static void main(String[] args){
@@ -37,10 +39,10 @@ public class Jmm01NoVolatile {
         Thread threadA = new Thread(()->{
             while (!initFlag){
                 //log.info("I am runing");// 切换上下文
-                //int caculateResult = caculate();
+                 //int caculateResult = caculate();
                 //log.info("计算结果:{}",caculateResult);
                /* try {
-                    Thread.sleep(200);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }*/
@@ -52,7 +54,7 @@ public class Jmm01NoVolatile {
         threadA.start();
 
         try {
-            Thread.sleep(500);
+            Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
