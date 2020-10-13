@@ -1,0 +1,18 @@
+package com.share.juc.threadpool.utils;
+/**
+ * @ClassName: SumUtils
+ * @package com.share.juc.threadpool.utils
+ * @author: fengxing
+ * @date: 2020/10/13 15:20
+*/
+public class SumUtils {
+
+    public static long sumRange(int[] arr, int lo, int hi) {
+        long result = 0;
+
+        for (int j = lo; j < hi; j++)
+            result += arr[j];
+        return result;
+    }
+
+}
